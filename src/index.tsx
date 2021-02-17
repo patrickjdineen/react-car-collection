@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Home, CreateCar} from './components';
+import {Home, CreateCar, Garage} from './components';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Navbar, Nav } from 'react-bootstrap';
 import './styles.css';
-import logo from "./components/assets/img/car-icon.png";
+import logo from "./assets/img/car-icon.png";
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,7 +31,7 @@ ReactDOM.render(
         <Link to="/">Home</Link>
         </Nav.Link>
       <Nav.Link>
-        <Link to="/CreateCar">Your Garage</Link>
+        <Link to="/Garage">Your Garage</Link>
       </Nav.Link>
     </Nav>
     </Navbar>
@@ -41,7 +41,10 @@ ReactDOM.render(
         <Home title="Home"/>
       </Route>
       <Route path="/CreateCar">
-        <CreateCar title="Garage"/>
+        <CreateCar />
+      </Route>
+      <Route path="/Garage">
+        <Garage />
       </Route>
     </Switch>
 
