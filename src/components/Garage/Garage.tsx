@@ -1,11 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useGetData } from '../../custom-hooks';
 import { Jumbotron, Button, Container, Card, Col, Row} from 'react-bootstrap';
+import { serverCalls } from '../../api';
+import { useHistory } from 'react-router-dom';
 
-export const Cars = () =>{
+export const Garage = () =>{
+
+    const history:any = useHistory()
+
+    const routeChange = (id?:string, path?:string)=>{
+        history.push({
+            pathname:path,
+            state:{car_id:id}
+        })
+    }
+
     let { garageData, getData } = useGetData();
-    console.log("garage check")
     console.log(garageData)
+
+    const handleDeleteCar = (id:any) =>{
+        serverCalls.delete(id);
+        console.log(garageData)
+        getData()
+    }
+    const handleUpdateCar = (id:any) =>{
+        serverCalls.update(id);
+        getData()
+    }
 
     return (
         <Container>
@@ -13,6 +34,7 @@ export const Cars = () =>{
                 <Col>
                     <Jumbotron>
                         <h1>Here are your Cars!!!</h1>
+                        <Button variant="primary" onClick={ () => routeChange("",'/CreateCar')}>Click Here to Add a New Car</Button>
                     </Jumbotron>
                 </Col>
             </Row>
@@ -37,8 +59,8 @@ export const Cars = () =>{
                                         {item.price}
                                     </Card.Text>
 
-                                    <Button variant="danger">Delete</Button>
-                                    <Button variant="primary">Update</Button>
+                                    <Button variant="danger" onClick={ () => handleDeleteCar(item.id)}>Delete</Button>
+                                    <Button variant="primary" onClick={() => handleUpdateCar(item.id)}>Update</Button>
                                 </Card.Body>
                             </Card>
                         </div>
