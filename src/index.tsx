@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Home, CreateCar, Garage} from './components';
+import {Home, CreateCar, Cars} from './components';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button, Navbar, Nav } from 'react-bootstrap';
@@ -31,7 +31,7 @@ ReactDOM.render(
         <Link to="/">Home</Link>
         </Nav.Link>
       <Nav.Link>
-        <Link to="/Garage">Your Garage</Link>
+        <Link to="/cars">Your Garage</Link>
       </Nav.Link>
     </Nav>
     </Navbar>
@@ -43,8 +43,8 @@ ReactDOM.render(
       <Route path="/CreateCar">
         <CreateCar />
       </Route>
-      <Route path="/Garage">
-        <Garage />
+      <Route path="/Cars">
+        <Cars />
       </Route>
     </Switch>
 
