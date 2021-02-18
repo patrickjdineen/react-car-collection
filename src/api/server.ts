@@ -29,6 +29,7 @@ export const serverCalls = {
         return await response.json()
     },
     update: async (id:string,data:any = {}) =>{
+        console.log("update check 1")
         const response = await fetch(`/cars/${id}`,{
             method: 'POST',
             headers:{
@@ -37,6 +38,7 @@ export const serverCalls = {
             },
             body:JSON.stringify(data)
         });
+        console.log("update check 2")
         if (!response.ok){
             throw new Error("We could not update that car")
         }

@@ -21,6 +21,7 @@ export const UpdateCar = () => {
 
     return(
         <Container>
+        <div>
         <form onSubmit = {handleSubmit(onSubmit)}>
                 <label htmlFor="make">Car Make</label>
                 <input type="text" name="make" id="make" placeholder="Update Car Make" ref={ register }/>
@@ -36,6 +37,7 @@ export const UpdateCar = () => {
                 
                 <button type="submit" className ="button-styles">Update Car!</button>
         </form>
+        </div>
         </Container>
     )
 }

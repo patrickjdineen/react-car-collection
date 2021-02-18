@@ -3,6 +3,7 @@ import { useGetData } from '../../custom-hooks';
 import { Jumbotron, Button, Container, Card, Col, Row} from 'react-bootstrap';
 import { serverCalls } from '../../api';
 import { useHistory } from 'react-router-dom';
+import '../../styles.css'
 
 export const Garage = () =>{
 
@@ -21,10 +22,6 @@ export const Garage = () =>{
     const handleDeleteCar = (id:any) =>{
         serverCalls.delete(id);
         console.log(garageData)
-        getData()
-    }
-    const handleUpdateCar = (id:any) =>{
-        serverCalls.update(id);
         getData()
     }
 
@@ -60,7 +57,7 @@ export const Garage = () =>{
                                     </Card.Text>
 
                                     <Button variant="danger" onClick={ () => handleDeleteCar(item.id)}>Delete</Button>
-                                    <Button variant="primary" onClick={() => handleUpdateCar(item.id)}>Update</Button>
+                                    <Button variant="primary" onClick={() => routeChange(item.id,'UpdateCar')}>Update</Button>
                                 </Card.Body>
                             </Card>
                         </div>
